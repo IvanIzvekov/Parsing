@@ -18,26 +18,27 @@ counter=0
 window = Tk()
 window.title("IP-017 Izvekov Ivan")
 window.geometry('300x150')
-combo = Combobox(window)
+window.resizable(0, 0)
+combo = Combobox(window, state='readonly')
 input_text = Label(window, text = "Name:", fg = "grey")
 price_text = Label(window, text = "Price:", fg = "grey")
 worldcup_text = Label(window, text = "Global capitalization:", fg = "grey")
 price_output = Entry(window,width=20, state='readonly')
 worldcup_output = Entry(window,width=20, state='readonly')
 
-input_text.grid(column = 0, row = 0)
-price_text.grid(column = 1, row = 0)
-worldcup_text.grid(column = 1, row = 2)
-price_output.grid(column = 1, row = 1)
-worldcup_output.grid(column = 1, row = 3)
 combo['values'] = (name[0].text, name[1].text, name[2].text, name[3].text, name[4].text, name[5].text, name[6].text, name[7].text, name[8].text, name[9].text)
 combo.current(0)
-combo.grid(column=0, row=1)
+combo.place(x = 80, y = 40)
+input_text.place(x = 125, y = 10)
+price_text.place(x = 50, y = 80)
+worldcup_text.place(x = 165, y = 80)
+price_output.place(x = 10, y = 110)
+worldcup_output.place(x = 160, y = 110)
 
-while counter<10:
-	if combo.get() == name[counter].text:
-		price_output.insert(0, text = price[combo.current()].text)
-		worldcup_output.insert(0, text = world_cap[combo.current()].text)
-	counter = counter + 1
+#while counter < 10:
+	#if combo.get() == name[counter].text:
+		#price_output.insert(0, text = price[combo.current()].text)
+		#worldcup_output.insert(0, text = world_cap[combo.current()].text)
+	#counter = counter + 1
 
 window.mainloop()
